@@ -1,25 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Task Manager</h1>
+<div class="app-container">
+    <header>
+        <h1>Task Manager</h1>
+        <p>Simple project task tracker with MySQL.</p>
+    </header>
 
-<input id="title" placeholder="Task title">
-<select id="status">
-    <option value="pending">Pending</option>
-    <option value="in_progress">In Progress</option>
-    <option value="done">Done</option>
-</select>
+    <section class="card">
+        <h2>Add New Task</h2>
+        <div class="form-row">
+            <input id="title" type="text" placeholder="Task title">
+        </div>
+        <div class="form-row">
+            <label>Status</label>
+            <select id="status">
+                <option value="pending">Pending</option>
+                <option value="in_progress">In progress</option>
+                <option value="done">Done</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label>Created</label>
+            <input id="created" type="date">
+            <label>Due</label>
+            <input id="due" type="date">
+        </div>
+        <div class="form-row">
+            <!-- For now fixed project_id=1; could be dropdown later -->
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <p id="message" class="message"></p>
+    </section>
 
-<input type="date" id="created">
-<input type="date" id="due">
-
-<button onclick="addTask()">Add Task</button>
-
-<ul id="tasks"></ul>
+    <section class="card">
+        <div class="card-header">
+            <h2>All Tasks</h2>
+            <button class="small" onclick="loadTasks()">Refresh</button>
+        </div>
+        <table class="tasks-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Due</th>
+            </tr>
+            </thead>
+            <tbody id="tasks">
+            <!-- tasks inserted here -->
+            </tbody>
+        </table>
+    </section>
+</div>
 
 <script src="script.js"></script>
 </body>
