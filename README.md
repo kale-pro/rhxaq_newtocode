@@ -28,10 +28,3 @@ A simple web-based *task manager* built with Flask, MySQL, and vanilla JavaScrip
 - task_manager.sql – SQL script to create the database, tables, and adjust MySQL auth. [file:37]  
 - state.json – Snapshot of current DB state exported by the backend. [file:32]
 
----
-
-## Setup Instructions
-
-### 1. Clone / copy the project
-
-Place all files in one folder, for example:
